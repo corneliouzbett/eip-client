@@ -65,9 +65,27 @@
         </configuration>
         <executions>
           <execution>
+            <id>repackage</id>
             <goals>
               <goal>repackage</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Apply Maven filtering to sources -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>templating-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>filter-sources</id>
+            <goals>
+              <goal>filter-sources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+            </configuration>
           </execution>
         </executions>
       </plugin>
